@@ -1,14 +1,8 @@
-package med.voll.api.medico;
+package med.voll.api.domain.medico;
 
 import jakarta.persistence.*;
-import jakarta.validation.Valid;
 import lombok.*;
-import med.voll.api.direccion.Direccion;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-
-import java.util.List;
+import med.voll.api.domain.direccion.Direccion;
 
 @Entity(name = "Medico")
 @Table(name = "medicos")
