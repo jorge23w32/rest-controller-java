@@ -37,7 +37,7 @@ public class TokenService {
 
     private Instant generarFecha() {
         // Ajusta la zona horaria a la de México
-        return LocalDateTime.now().plusMinutes(10).atZone(ZoneId.of("America/Mexico_City")).toInstant();
+        return LocalDateTime.now().plusMinutes(10000).atZone(ZoneId.of("America/Mexico_City")).toInstant();
     }
 
     public String getSubject(String token) {
