@@ -21,15 +21,15 @@ public class SecurityConfigurations {
     private SecurityFiltro filtro;
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity
+        return httpSecurity
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(HttpMethod.POST, "/login").permitAll()
+                .authorizeHttpRequests((authorizeHttpRequests) -> authorizeHttpRequests.requestMatchers(HttpMethod.POST, "/login").permitAll()
+                .requestMatchers("/v3/api-docs/**", "/swagger-ui/**" , "/swagger-ui.html").permitAll()
                         .anyRequest().authenticated()
-                ).addFilterBefore(filtro, UsernamePasswordAuthenticationFilter.class);
+                ).addFilterBefore(filtro, UsernamePasswordAuthenticationFilter.class).build();
 
-        return httpSecurity.build();
+
     }
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception{
