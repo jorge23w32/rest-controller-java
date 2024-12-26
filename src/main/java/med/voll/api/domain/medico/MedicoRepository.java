@@ -22,8 +22,7 @@ public interface MedicoRepository extends JpaRepository<Medico,Long> {
                                                                   where c.fecha = :fecha
                                                        )
                                                             order by rand()
-                                                                       limit 1
-                                                      
+                                                                       limit 1                                              
            """
         )
     Optional<Medico> findRandomMedico(Especialidad especialidad, LocalDateTime fecha);

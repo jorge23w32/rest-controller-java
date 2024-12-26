@@ -22,8 +22,9 @@ public class ConsultaController {
 
     @PostMapping
     @Transactional
-    public DatosDetalleConsulta reservar(@RequestBody @Valid DatosReservaConsulta datosReservaConsulta){
-        return  reservaConsulta.reservar(datosReservaConsulta);
+    public ResponseEntity<DatosDetalleConsulta> reservar(@RequestBody @Valid DatosReservaConsulta datosReservaConsulta){
+        var detalleConsulta=  reservaConsulta.reservar(datosReservaConsulta);
+        return ResponseEntity.ok(detalleConsulta);
     }
 }
 

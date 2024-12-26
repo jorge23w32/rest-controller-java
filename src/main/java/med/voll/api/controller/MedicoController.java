@@ -21,6 +21,7 @@ import java.net.URI;
 public class MedicoController {
     @Autowired
     private MedicoRepository repository;
+
     @PostMapping
     public ResponseEntity<DatosRespuestaMedico> registrarMedico(@RequestBody @Valid DatosRegistroMedico datosMedico, UriComponentsBuilder componentsBuilder){
         Medico medico = repository.save(new Medico(datosMedico));
