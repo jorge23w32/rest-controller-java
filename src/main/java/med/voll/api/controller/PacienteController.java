@@ -27,7 +27,7 @@ public class PacienteController {
         Paciente paciente = repository.save(new Paciente(datosPaciente));
         var datosDireccion= new DatosDireccion(paciente.getDireccion().getCalle(), paciente.getDireccion().getDistrito(), paciente.getDireccion().getCuidad(), paciente.getDireccion().getNumero(),paciente.getDireccion().getComplemento());
         var datosRespuestaPacientes = new DatosRespuestaPacientes(paciente.getId(),  paciente.getNombre(), paciente.getUsuario(), datosDireccion);
-        URI url = uriComponentsBuilder.path("/medicos/{id").buildAndExpand(paciente.getId()).toUri();
+        URI url = uriComponentsBuilder.path("/medicos/{id}").buildAndExpand(paciente.getId()).toUri();
         return ResponseEntity.created(url).body(datosRespuestaPacientes);
     }
 

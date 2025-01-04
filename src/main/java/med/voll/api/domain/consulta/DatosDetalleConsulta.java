@@ -12,6 +12,7 @@ public record DatosDetalleConsulta(
         LocalDateTime fecha
 ) {
     public DatosDetalleConsulta(Consulta consulta) {
-        this(consulta.getId(), consulta.getMedico().getId(), consulta.getMedico().getEspecialidad(), consulta.getPaciente().getId(), consulta.getFecha());
+        this(consulta.getId(), consulta.getMedico().getId(), consulta.getMedico().getEspecialidad(),
+             consulta.getPaciente().getId(), consulta.getFecha());
     }
 }
